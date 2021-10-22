@@ -1,10 +1,16 @@
-body {
+/* Global reset added removed from body */
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
   background-color:#fff;
   font-family:Helvetica, Arial, sans-serif;
 }
+
 .header {
   background-color:#1f2937;
   height: 85vh;
@@ -12,29 +18,41 @@ body {
   margin-top:0;
   color: #e5e7eb;
 }
+
 .header_links {
   display: flex;
   justify-content:space-between;
   align-items: center;
+  /* absolute unit values should not be used, think about changing to rem */
+  /* 1rem = 16px this way the unit is more responsive */
   margin-left: 250px;
   margin-right: 150px;
 }
+
+/* this class is useless with the new global reset */
 .logo {
   padding: 0;
   margin:0;
 }
+
 .header_links h3 {
   color: #f9faf8;
+  /* absolute value again */
   font-size: 24px;
   transition: 0.5s;
+  /* no need for the px here */
   font-weight: 900px;
 }
+
 span {
+  /* should be hex value */
   color:lime;
 }
+
 .header_links h3:hover {
   background-color: transparent;
   border: 1px solid limegreen;
+  /* you can use rem here as well */
   padding: 10px 20px;
   cursor:pointer;
 }
@@ -46,6 +64,7 @@ nav ul {
    display:flex;
    justify-content: center;
    align-items: center;
+   /* rem can be used here also */
    gap: 40px;
    transition: 0.5s;
    cursor: pointer;
@@ -53,6 +72,7 @@ nav ul {
 li:hover {
    border: 1px solid limegreen;
    background-color: transparent;
+  /* 20px font size is 16/20= 1.25rem */
    font-size:20px;
    color: lime;
    text-decoration: underline;
@@ -144,6 +164,29 @@ li:hover {
   display:block;
   padding-top:20px;
 }
+
+/*
+redundant code try to use the DRY method (Do Not Repeat Yourself)
+you can should think about learning SCSS to help here
+simple fix would be to delete most of this it will also load faster and cleaner
+and only add the url to the .imageX lines
+
+.elect_materials .image-container {
+  background-position: center;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+.elect_materials .image-container .image1 {
+  background-image:url("../images/amplifier-network.jpg");
+}
+
+.elect_materials .image-container .image2 {
+  background-image:url("../images/cable-gland.jpg");
+}
+
+*/
+
 .elect_materials .image-container .image1 {
   background-image:url("../images/amplifier-network.jpg");
   background-position: center;
@@ -189,6 +232,8 @@ strong {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  /* the following can be condensed to one line as shown but shouldn't be px */
+  /* margin: 100px 180px 100px 230px; */
   margin-top:100px;
   margin-bottom:100px;
   margin-left:230px;
@@ -227,6 +272,11 @@ strong {
   border:3px solid #ffffff
 }
 .blue_section button:hover {
+  /*
+  use this program to help pick colors off your screen
+  https://annystudio.com/software/colorpicker/
+  #00ff00 is the same as lime
+   */
  border: 1px solid lime;
  background-color:transparent;
  color:lime;
